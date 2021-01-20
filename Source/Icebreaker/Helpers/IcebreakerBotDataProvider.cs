@@ -257,6 +257,7 @@ namespace Icebreaker.Helpers
                 ServiceUrl = serviceUrl
             };
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
+        }
         
         /*
         /// <summary>

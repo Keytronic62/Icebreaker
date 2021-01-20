@@ -312,7 +312,7 @@ namespace Icebreaker.Helpers
                 TeamId = teamId,
                 ServiceUrl = serviceUrl
             };
-            await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userFeedback);
+            await this.documentClient.UpsertDocumentAsync(this.feedbackCollection.SelfLink, userFeedback);
         }
 
         /// <summary>
@@ -376,7 +376,7 @@ namespace Icebreaker.Helpers
                 Id = feedbackCollectionName
             };
             feedbackCollectionDefinition.PartitionKey.Paths.Add("/id");
-            this.usersCollection = await this.documentClient.CreateDocumentCollectionIfNotExistsAsync(this.database.SelfLink, feedbackCollectionDefinition, useSharedOffer ? null : requestOptions);
+            this.feedbackCollection = await this.documentClient.CreateDocumentCollectionIfNotExistsAsync(this.database.SelfLink, feedbackCollectionDefinition, useSharedOffer ? null : requestOptions);
 
             this.telemetryClient.TrackTrace("Data store initialized");
         }

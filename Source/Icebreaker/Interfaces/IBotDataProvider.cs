@@ -49,5 +49,16 @@ namespace Icebreaker.Interfaces
         /// <param name="serviceUrl">User service URL</param>
         /// <returns>Tracking task</returns>
         Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl);
+
+        /// <summary>
+        /// Adds feedback
+        /// </summary>
+        /// <param name="tenantId">Tenant id</param>
+        /// <param name="feedbackId">Feedback id</param>
+        /// <param name="feedbackText">Text of user comment</param>
+        /// <param name="teamId">Team id</param>
+        /// <param name="serviceUrl">Service URL</param>
+        /// <returns>Tracking task</returns>
+        Task AddFeedbackAsync(string tenantId, string feedbackId, string feedbackText, string teamId, string serviceUrl);
     }
 }

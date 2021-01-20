@@ -33,6 +33,7 @@ namespace Icebreaker.Helpers
         private Database database;
         private DocumentCollection teamsCollection;
         private DocumentCollection usersCollection;
+        private DocumentCollection feedbackCollection;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IcebreakerBotDataProvider"/> class.
@@ -290,6 +291,31 @@ namespace Icebreaker.Helpers
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
         }
         */
+
+        /// <summary>
+        /// Adds feedback
+        /// </summary>
+        /// <param name="tenantId">Tenant id</param>
+        /// <param name="feedbackId">Feedback id</param>
+        /// <param name="feedbackText">Text of user comment</param>
+        /// <param name="teamId">Team id</param>
+        /// <param name="serviceUrl">Service URL</param>
+        /// <returns>Tracking task</returns>
+        public async Task AddFeedbackAsync(string tenantId, string feedbackId, string feedbackText, string teamId, string serviceUrl)
+        {
+
+            await this.EnsureInitializedAsync();
+
+            var feedback = new feedback
+            {
+                TenantId = tenantId,
+                FeedbackId = feedbackId,
+                FeedbackText = feedbackText,
+                TeamId = teamId,
+                ServiceUrl = serviceUrl
+            };
+            await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, feedback);
+        }
 
         /// <summary>
         /// Initializes the database connection.

@@ -42,13 +42,13 @@ namespace Icebreaker.Helpers
         /// Gets or sets the id of the associated
         /// </summary>
         [JsonProperty("teamId")]
-        public string ServiceUrl { get; set; }
+        public string TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the text of the comment by the user
         /// </summary>
         [JsonProperty("feedbackText")]
-        public string feedbackText { get; set; }
+        public string FeedbackText { get; set; }
 
     }
 }

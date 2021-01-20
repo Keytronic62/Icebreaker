@@ -245,8 +245,13 @@ namespace Icebreaker.Helpers
         /// <param name="optedIn">User opt-in status</param>
         /// <param name="serviceUrl">User service URL</param>
         /// <returns>Tracking task</returns>
-        public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl, string[] recentPairUps)
+        public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl, List<UserInfo> recentPairUps)
         {
+            if (recentPairUps is null)
+            {
+                recentPairUps = new List<UserInfo>();
+            }
+
             await this.EnsureInitializedAsync();
 
             var userInfo = new UserInfo

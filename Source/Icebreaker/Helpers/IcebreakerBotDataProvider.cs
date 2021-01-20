@@ -216,8 +216,7 @@ namespace Icebreaker.Helpers
                     .Select(u => new UserInfo { Id = u.Id,  RecentPairUps = u.RecentPairUps })
                     .AsDocumentQuery();
 
-                // FIX THIS
-                var usersRecentPairUpsLookup = new Dictionary<string, string>();
+                var usersRecentPairUpsLookup = new Dictionary<string, List<UserInfo>>();
                 while (query.HasMoreResults)
                 {
                     // Note that ExecuteNextAsync can return many records in each call

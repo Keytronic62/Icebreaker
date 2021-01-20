@@ -244,6 +244,29 @@ namespace Icebreaker.Helpers
         /// <param name="optedIn">User opt-in status</param>
         /// <param name="serviceUrl">User service URL</param>
         /// <returns>Tracking task</returns>
+        public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl)
+        {
+
+            await this.EnsureInitializedAsync();
+
+            var userInfo = new UserInfo
+            {
+                TenantId = tenantId,
+                UserId = userId,
+                OptedIn = optedIn,
+                ServiceUrl = serviceUrl
+            };
+            await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
+        
+        /*
+        /// <summary>
+        /// Set the user info for the given user
+        /// </summary>
+        /// <param name="tenantId">Tenant id</param>
+        /// <param name="userId">User id</param>
+        /// <param name="optedIn">User opt-in status</param>
+        /// <param name="serviceUrl">User service URL</param>
+        /// <returns>Tracking task</returns>
         public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl, List<UserInfo> recentPairUps)
         {
             if (recentPairUps is null)
@@ -263,6 +286,7 @@ namespace Icebreaker.Helpers
             };
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
         }
+        */
 
         /// <summary>
         /// Initializes the database connection.

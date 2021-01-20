@@ -188,6 +188,7 @@ namespace Icebreaker.Helpers
             }
         }
 
+        /*
         /// <summary>
         /// Get the stored information about given users
         /// </summary>
@@ -235,6 +236,7 @@ namespace Icebreaker.Helpers
                 return null;
             }
         }
+        */
 
         /// <summary>
         /// Set the user info for the given user

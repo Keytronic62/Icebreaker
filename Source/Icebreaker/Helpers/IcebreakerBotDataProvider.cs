@@ -259,7 +259,7 @@ namespace Icebreaker.Helpers
                 TenantId = tenantId,
                 UserId = userId,
                 OptedIn = optedIn,
-                ServiceUrl = serviceUrl
+                ServiceUrl = serviceUrl,
                 RecentPairUps = recentPairUps
             };
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);

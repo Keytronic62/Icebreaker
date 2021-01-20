@@ -6,7 +6,6 @@
 
 namespace Icebreaker.Helpers
 {
-    using System.Collections.Generic;
     using Microsoft.Azure.Documents;
     using Newtonsoft.Json;
 
@@ -49,5 +48,6 @@ namespace Icebreaker.Helpers
         /// </summary>
         [JsonProperty("feedbackText")]
         public string FeedbackText { get; set; }
+
     }
 }

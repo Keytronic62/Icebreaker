@@ -48,6 +48,5 @@ namespace Icebreaker.Helpers
         /// </summary>
         [JsonProperty("feedbackText")]
         public string FeedbackText { get; set; }
-
     }
 }

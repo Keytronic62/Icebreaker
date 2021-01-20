@@ -249,7 +249,6 @@ namespace Icebreaker.Helpers
         /// <returns>Tracking task</returns>
         public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl)
         {
-
             await this.EnsureInitializedAsync();
 
             var userInfo = new UserInfo
@@ -261,7 +260,7 @@ namespace Icebreaker.Helpers
             };
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
         }
-        
+
         /*
         /// <summary>
         /// Set the user info for the given user
@@ -303,10 +302,9 @@ namespace Icebreaker.Helpers
         /// <returns>Tracking task</returns>
         public async Task AddFeedbackAsync(string tenantId, string feedbackId, string feedbackText, string teamId, string serviceUrl)
         {
-
             await this.EnsureInitializedAsync();
 
-            var feedback = new feedback
+            var userFeedback = new UserFeedback
             {
                 TenantId = tenantId,
                 FeedbackId = feedbackId,
@@ -314,7 +312,7 @@ namespace Icebreaker.Helpers
                 TeamId = teamId,
                 ServiceUrl = serviceUrl
             };
-            await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, feedback);
+            await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userFeedback);
         }
 
         /// <summary>

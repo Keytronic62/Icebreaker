@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------
-// <copyright file="UserInfo.cs" company="Microsoft">
+// <copyright file="UserFeedback.cs" company="Microsoft">
 // Copyright (c) Microsoft. All rights reserved.
 // </copyright>
 //----------------------------------------------------------------------------------------------
@@ -49,6 +49,5 @@ namespace Icebreaker.Helpers
         /// </summary>
         [JsonProperty("feedbackText")]
         public string FeedbackText { get; set; }
-
     }
 }

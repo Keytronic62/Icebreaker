@@ -304,7 +304,7 @@ namespace Icebreaker.Bot
                     // Unknown input
                     this.telemetryClient.TrackTrace($"Cannot process the following: {activity.Text}");
                     var replyActivity = activity.CreateReply();
-                    await this.SendUnrecognizedInputMessageAsync(turnContext, replyActivity, cancellationToken);
+                    await this.SendUnrecognizedInputMessageAsync(turnContext, replyActivity, cancellationToken, activity.Text);
                 }
             }
             catch (Exception ex)
@@ -376,9 +376,17 @@ namespace Icebreaker.Bot
         /// <param name="replyActivity">The activity for replying to a message</param>
         /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
         /// <returns>Tracking task</returns>
+        /*
         private async Task SendUnrecognizedInputMessageAsync(ITurnContext turnContext, Activity replyActivity, CancellationToken cancellationToken)
         {
             replyActivity.Attachments = new List<Attachment> { UnrecognizedInputAdaptiveCard.GetCard() };
+            await turnContext.SendActivityAsync(replyActivity, cancellationToken);
+        }
+        */
+
+        private async Task SendUnrecognizedInputMessageAsync(ITurnContext turnContext, Activity replyActivity, CancellationToken cancellationToken, string text)
+        {
+            replyActivity.Attachments = new List<Attachment> { UnrecognizedInputAdaptiveCard.GetCard(text) };
             await turnContext.SendActivityAsync(replyActivity, cancellationToken);
         }
 

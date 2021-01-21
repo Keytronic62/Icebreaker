@@ -298,9 +298,6 @@ namespace Icebreaker.Bot
                     };
 
                     await turnContext.SendActivityAsync(optInReply, cancellationToken).ConfigureAwait(false);
-                } else if (string.Equals(activity.Value.))
-                {
-
                 }
                 else
                 {

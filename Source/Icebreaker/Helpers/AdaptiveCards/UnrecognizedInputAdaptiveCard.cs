@@ -52,7 +52,7 @@ namespace Icebreaker.Helpers.AdaptiveCards
 
             var cardData = new
             {
-                messageContent = text,
+                messageContent = $"{text}",
                 tourUrl = $"https://teams.microsoft.com/l/task/{appId}?url={htmlUrl}&height=533px&width=600px&title={tourTitle}",
                 tourButtonText = Resources.TakeATourButtonText
             };

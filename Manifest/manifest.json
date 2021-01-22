@@ -5,10 +5,10 @@
   "id": "d55d08d9-bacb-4567-942f-afd85d632dcc",
   "packageName": "com.microsoft.teams.icebreaker",
   "developer": {
-    "name": "<company name>",
-    "websiteUrl": "<website url>",
-    "privacyUrl": "<privacy url>",
-    "termsOfUseUrl": "<terms of use url>"
+    "name": "CPC-AG",
+    "websiteUrl": "https://https://cpc-ag.de",
+    "privacyUrl": "https://cpc-ag.de/datenschutzerklaerung",
+    "termsOfUseUrl": "https://cpc-ag.de/impressum>"
   },
   "icons": {
     "color": "color.png",
@@ -24,7 +24,7 @@
   "accentColor": "#64A2CC",
   "bots": [
     {
-      "botId": "<bot id>",
+      "botId": "0027b259-7dba-4b49-973b-08bf7279eae6",
       "scopes": [
         "personal",
         "team"
@@ -38,6 +38,6 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "<app domain>"
+    "icebreaker-rrkp525txocw6.azurewebsites.net"
   ]
 }
